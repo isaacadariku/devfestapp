@@ -1,16 +1,36 @@
 # devfestapp
 
-A new Flutter project.
+A Web App for Abuja DevFest 2022, powered by Flutter. Showcasing the speaker's profile, social links and slide url.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Clone the repository
 
-A few resources to get you started if this is your first Flutter project:
+```bash
+git clone
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Install dependencies
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+flutter pub get
+```
+
+Run the app
+
+```bash
+flutter run
+```
+
+## Contributing
+
+Contributions are welcome!
+
+## License
+
+[MIT](LICENSE)
+
+## Credits
+
+- [Flutter](https://flutter.dev/)
+- [Abuja DevFest](https://gdg.community.dev/gdg-abuja/)
