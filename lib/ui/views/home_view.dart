@@ -13,92 +13,85 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: BoxConstraints(
-        minHeight: 0,
-        maxWidth: context.adaptivePageConstraint,
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 60,
+        vertical: 30.0,
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 60,
-          vertical: 30.0,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ResponsiveGridRow(
-              children: [
-                ResponsiveGridCol(
-                  xs: 12,
-                  md: 20,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      AnimatedTextKit(
-                        animatedTexts: [
-                          ColorizeAnimatedText(
-                            'DevFest Abuja 2022',
-                            textStyle: context.textTheme.headline3!,
-                            colors: colorizeColors,
-                          ),
-                        ],
-                        repeatForever: true,
-                        pause: const Duration(microseconds: 100),
-                      ),
-                      const SizedBox(height: 10),
-                      SelectableText(
-                        'GDG DevFest is a community-led, developer event happening all over the world.',
-                        style: context.textTheme.headline6!,
-                      ),
-                      const SizedBox(height: 10),
-                      Row(
-                        children: [
-                          ElevatedButton(
-                            onPressed: () {
-                              html.window.open(
-                                'https://gdg.community.dev/accounts/login/?next=/gdg-abuja/',
-                                'GDG DevFest Abuja 2022',
-                              );
-                            },
-                            child: const Text('Join Us'),
-                          ),
-                          const SizedBox(width: 10),
-                          OutlinedButton(
-                            onPressed: () {
-                              html.window.open(
-                                'https://gdg.community.dev/gdg-abuja/',
-                                'GDG DevFest Abuja 2022',
-                              );
-                            },
-                            child: const Text('Watch Live'),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 20),
-                      SelectableText(
-                        'Speakers at DevFest Abuja 2022',
-                        style: context.textTheme.headline5,
-                      ),
-                    ],
-                  ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ResponsiveGridRow(
+            children: [
+              ResponsiveGridCol(
+                xs: 12,
+                md: 20,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    AnimatedTextKit(
+                      animatedTexts: [
+                        ColorizeAnimatedText(
+                          'DevFest Abuja 2022',
+                          textStyle: context.textTheme.headline3!,
+                          colors: colorizeColors,
+                        ),
+                      ],
+                      repeatForever: true,
+                      pause: const Duration(microseconds: 100),
+                    ),
+                    const SizedBox(height: 10),
+                    SelectableText(
+                      'GDG DevFest is a community-led, developer event happening all over the world.',
+                      style: context.textTheme.headline6!,
+                    ),
+                    const SizedBox(height: 10),
+                    Row(
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {
+                            html.window.open(
+                              'https://gdg.community.dev/accounts/login/?next=/gdg-abuja/',
+                              'GDG DevFest Abuja 2022',
+                            );
+                          },
+                          child: const Text('Join Us'),
+                        ),
+                        const SizedBox(width: 10),
+                        OutlinedButton(
+                          onPressed: () {
+                            html.window.open(
+                              'https://gdg.community.dev/gdg-abuja/',
+                              'GDG DevFest Abuja 2022',
+                            );
+                          },
+                          child: const Text('Watch Live'),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    SelectableText(
+                      'Speakers at DevFest Abuja 2022',
+                      style: context.textTheme.headline5,
+                    ),
+                  ],
                 ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+          Expanded(
+            flex: context.isMobileDisplay ? 1 : 3,
+            child: ResponsiveGridList(
+              desiredItemWidth: context.isMobileDisplay ? 150 : 220,
+              minSpacing: context.isMobileDisplay ? 15 : 25,
+              shrinkWrap: true,
+              children: [
+                for (final speaker in shuffledSpeakers) SpeakerDetails(speaker),
               ],
             ),
-            const SizedBox(height: 20),
-            Expanded(
-              flex: context.isMobileDisplay ? 1 : 3,
-              child: ResponsiveGridList(
-                desiredItemWidth: context.isMobileDisplay ? 150 : 220,
-                minSpacing: context.isMobileDisplay ? 15 : 25,
-                shrinkWrap: true,
-                children: [
-                  for (final speaker in shuffledSpeakers)
-                    SpeakerDetails(speaker),
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

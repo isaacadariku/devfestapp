@@ -45,6 +45,8 @@ const List<Speaker> speakers = [
     image: 'assets/images/speakers/speaker6.jpg',
     twitter: 'https://twitter.com/adarikuisaac',
     linkedin: 'https://www.linkedin.com/in/isaacadariku/',
+    slideUrl:
+        'https://docs.google.com/presentation/d/1oNhvTaejCdUySGVlp7kWXwealrYHO2R5xF-19UjKwOU/edit?usp=sharing',
   ),
   Speaker(
     id: 'speaker7',
