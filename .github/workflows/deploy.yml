@@ -14,5 +14,3 @@ jobs:
       - uses: bluefireteam/flutter-gh-pages@v7
         with:
           baseHref: /devfestapp/
- slideUrl:
-        'https://docs.google.com/presentation/d/1oNhvTaejCdUySGVlp7kWXwealrYHO2R5xF-19UjKwOU/edit?usp=sharing',
